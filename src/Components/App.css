@@ -1,0 +1,47 @@
+.app-container{
+ display:inline-block;
+ flex-direction: column;
+ gap:5px;
+ padding:1rem;
+ justify-content: center;
+
+ 
+}
+
+.table{
+    border-color: black;
+    border-style:double;
+}
+
+.tr{
+    border:black;
+  border-style: double;
+  
+  text-align:left;
+  padding: 8px;
+  
+}
+td{
+    border-style: double;
+}
+
+h1{
+    font-family:sans-serif;
+    
+    
+}
+
+input{
+    text-align: center;
+   border:0ch;
+   border-style: double;
+   background-color: whitesmoke;
+}
+
+button{
+    border: 2px;
+    border-style: dashed;
+    border-radius: 2ch;
+    display:inline-block
+}
+
