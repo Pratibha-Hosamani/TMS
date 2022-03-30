@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 
-export default function Header() {
+export default function Header(props) {
   return (
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <div className="container-fluid">
@@ -13,13 +13,14 @@ export default function Header() {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <Link to="/" className="nav-link active" aria-current="page"><b>Home</b></Link>
+                <Link to={`/${props.usn}`} className="nav-link active" aria-current="page"><b>Home</b></Link>
                </li>
                <li className="nav-item">
-              <Link to="/about" className="nav-link active" aria-current="page"><b>About</b></Link>
+              <Link to={`/about/${props.usn}`} className="nav-link active" aria-current="page"><b>About</b></Link>
               </li>
+              
               <li className="nav-item">
-              <Link to="/contact" className="nav-link active" aria-current="page"><b>Contact Us</b></Link>
+              <Link to={`/tms/${props.usn}`} className="nav-link active" aria-current="page"><b>Time table</b></Link>
               </li>
             </ul>
             <form className="d-flex">

@@ -1,7 +1,24 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import { Card } from "react-bootstrap";
-
+import axios from 'axios';
+import { useParams } from 'react-router';
 export default function ContactUs() {
+
+  const { usn } = useParams()
+  const [uData, setUdata] = useState("")
+  const getdata = async () => {
+    await axios.get(`localhost:5000/login/${usn}`).then((succ) => {
+      setUdata(succ.data)
+      console.log(succ.data)
+    }).catch((err) => {
+      alert("Error")
+    })
+
+  }
+  useEffect(() => {
+    getdata()
+  }, [])
+
   return (
     <>
       <center><br />

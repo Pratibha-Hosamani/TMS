@@ -1,9 +1,25 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import { Card } from "react-bootstrap"
-
+import Header from './Header'
+import axios from 'axios'
+import { useParams } from 'react-router'
 export const About = () => {
+
+    const [uData, setUdata] = useState("") 
+    const { usn } = useParams()
+    const getdata = async () => {
+        await axios.get(`localhost:5000/login/${usn}`).then((succ) => {
+            setUdata(succ.data)
+            console.log(succ.data)
+        })
+        
+    }
+    useEffect(() => {
+        getdata()
+    }, [])
     return (
         <>
+        <Header usn={usn}/>
             <center>
                 <br /><br />
                 <h1><b>About Us</b> </h1>
@@ -14,7 +30,7 @@ export const About = () => {
                                 <Card.Body>
                                     <Card.Text>
                                     </Card.Text>
-                                    <b>>>Mission Statement:<br /></b>
+                                    <b>Mission Statement:<br /></b>
                                     generates timetable according to the data given by the user.
                                 </Card.Body>
                             </Card>
@@ -23,7 +39,7 @@ export const About = () => {
                             <Card style={{ width: "18rem", height: "8rem" }} bg="info">
                                 <Card.Body>
                                     <Card.Text>
-                                        <b>>>Vision Statement:<br /></b>
+                                        <b>Vision Statement:<br /></b>
                                         Ensuring that functioning of App in a seamless manner without any complexities.
                                     </Card.Text>
                                 </Card.Body>
